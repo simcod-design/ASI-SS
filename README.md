@@ -76,12 +76,10 @@ Due to institutional restrictions, the original data cannot be shared.
 However, all analysis scripts and intermediate outputs are provided to ensure 
 maximum transparency and reproducibility.
 
----------------------------------------------------------
+---------------------------
 SOFTWARE REQUIREMENTS
----------------------------------------------------------
-
+---------------------------
 The analyses were conducted in R. Key packages include:
-
 - lavaan  
 - psych  
 - GPArotation  
@@ -92,13 +90,11 @@ The analyses were conducted in R. Key packages include:
 - igraph  
 - ggrepel
 - semPlot
-
 (Additional packages are specified within each script.)
 
----------------------------------------------------------
+---------------------------
 CITATION
----------------------------------------------------------
-
+---------------------------
 If you use this repository, please cite:
 
 Demir, P., Yılmaz, M. A., & Yuksel, S.  
