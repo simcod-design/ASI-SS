@@ -100,5 +100,3 @@ If you use this repository, please cite:
 Demir, P., Yılmaz, M. A., & Yuksel, S.  
 Beyond Classical Scale Development: Constructing Robust Longitudinal Measurement 
 Structures from Retrospective Survey Data with Partially Overlapping Items.
-
-=========================================================
