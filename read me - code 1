@@ -1,7 +1,8 @@
   =========================================================
   WORKFLOW DESCRIPTION FOR CODE 1
   =========================================================
-  This script implements a comprehensive multi-stage analytical pipeline to derive a robust multidimensional measurement structure from retrospective survey data characterized by partially overlapping item sets across years.
+  This script implements a comprehensive multi-stage analytical pipeline to derive a robust multidimensional measurement structure
+  from retrospective survey data characterized by partially overlapping item sets across years.
  
   The workflow consists of the following steps:
  
