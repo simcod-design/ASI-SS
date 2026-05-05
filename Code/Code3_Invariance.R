@@ -31,7 +31,6 @@ library(semPlot) #semplot
 # =========================================================
 # Use the finalized 73-item measurement structure derived from Code 2
 
-
 # =========================================================
 # 27. DEFINE YEAR LISTS
 # =========================================================
@@ -39,7 +38,6 @@ year_list_cfa <- list(
   "2017" = year_2017_cfa, "2019" = year_2019_cfa, "2020" = year_2020_cfa,
   "2021" = year_2021_cfa, "2022" = year_2022_cfa, "2023" = year_2023_cfa,
   "2024" = year_2024_cfa)
-
 year_list_cfa_id <- list(
   "2017" = apma[apma$year==1,"ID"], "2019" = apma[apma$year==2,"ID"], "2020" = apma[apma$year==3,"ID"],
   "2021" = apma[apma$year==4,"ID"], "2022" = apma[apma$year==5,"ID"], "2023" = apma[apma$year==6,"ID"],
@@ -59,12 +57,10 @@ factor_list <- list(
   F7 = c("I86", "I87", "I89", "I90", "I91", "I92", "I93")
 )
 
-
 # =========================================================
 # 29. REPEATED CROSS-SECTIONAL INVARIANCE (COMMON ITEMS)
 # =========================================================
 # Independent samples across years (no shared individuals)
-
 results_table1 <- data.frame(
   Year_Pair = character(),
   Common_Items = character(),
@@ -74,7 +70,6 @@ results_table1 <- data.frame(
   n_common_items = numeric(),
   stringsAsFactors = FALSE
 )
-
 
 results_table2 <- data.frame(
   Year_Pair = character(),
@@ -93,9 +88,7 @@ results_table2 <- data.frame(
   stringsAsFactors = FALSE
 )
 
-
 years <- names(year_list_cfa)
-
 for (i in 1:(length(years)-1)) {
   
   year1 <- years[i]
@@ -191,8 +184,7 @@ for (i in 1:(length(years)-1)) {
   } else {
     data_model <- data_combined[,-2]
   }
-  
-  
+    
   # Configural model
   fit_config <- cfa(model_dynamic, data=data_model, group= "group",
                     estimator="WLSMV", ordered=common_items)
@@ -235,8 +227,7 @@ for (i in 1:(length(years)-1)) {
         stringsAsFactors = FALSE
       )
     )
-  
-  
+    
   results_table2 <- results_table2 %>%
     bind_rows(
       data.frame(
@@ -288,20 +279,15 @@ for (i in 1:(length(years)-1)) {
         stringsAsFactors = FALSE
       )
     )
-  
 }
-
-
 
 write_clip(results_table1)
 write_clip(results_table2)
-
 
 # =========================================================
 # 30. PANEL-BASED LONGITUDINAL INVARIANCE (COMMON IDs)
 # =========================================================
 # Same individuals observed across consecutive years
-
 results_table3 <- data.frame(
   Year_Pair = character(),
   Common_Items = character(),
@@ -311,7 +297,6 @@ results_table3 <- data.frame(
   n_common_items = numeric(),
   stringsAsFactors = FALSE
 )
-
 
 results_table4 <- data.frame(
   Year_Pair = character(),
@@ -330,31 +315,21 @@ results_table4 <- data.frame(
   stringsAsFactors = FALSE
 )
 
-
 years <- names(year_list_cfa)
-
 for (i in 1:(length(years)-1)) {
-    
     year1 <- years[i]
     year2 <- years[i+1]
-    
     data1 <- cbind(group = "Year1",ID= year_list_cfa_id[[year1]], year_list_cfa[[year1]])
     data2 <- cbind(group = "Year2", ID= year_list_cfa_id[[year2]], year_list_cfa[[year2]])
-    
     common_ids <- intersect(data1$ID, data2$ID)
     data1_ci <- data1[data1$ID %in% common_ids, ]
     data2_ci <- data2[data2$ID %in% common_ids, ]
-    
-    
+       
     common_items <- intersect(colnames(data1_ci)[-c(1,2)], colnames(data2_ci)[-c(1,2)])
     data1_c <- data1_ci[,  c("group","ID",common_items)]
     data2_c <- data2_ci[,  c("group","ID",common_items)]
-  
-    
+      
     data_combined <- bind_rows(data1_c, data2_c) 
-    
-    
-    # data_combined$group / year2 - year1
     n_year1 <- sum(data_combined$group == "Year1")
     n_year2 <- sum(data_combined$group == "Year2")
     
@@ -378,8 +353,7 @@ for (i in 1:(length(years)-1)) {
     }
     
     model_dynamic_single_line <- gsub("\n", "; ", model_dynamic)
-    
-    
+        
     try_fit <- function(model, data, group=NULL) {
       tryCatch(
         cfa(model, data = data, estimator = "WLSMV", ordered = colnames(data),
@@ -388,8 +362,7 @@ for (i in 1:(length(years)-1)) {
       )
     }
     fit <- try_fit(model_dynamic,data_combined[,-2],group="group")
-    
-    
+        
     if (inherits(fit, "error")) {
       err_msg <- fit$message
       cat("Hata mesajı:\n", err_msg, "\n")
@@ -409,8 +382,7 @@ for (i in 1:(length(years)-1)) {
       } else  {
       data_model <- data_combined[,-2]
     }
-    
-    
+        
     # Configural model
     fit_config <- cfa(model_dynamic, data=data_model, group= "group",
                       estimator="WLSMV", ordered=common_items)
@@ -426,7 +398,6 @@ for (i in 1:(length(years)-1)) {
     fit_measures <- function(fit) {
       c(fitMeasures(fit, c("chisq","df","pvalue","cfi","tli","rmsea","rmsea.ci.lower","rmsea.ci.upper","srmr")))
     }
-    
     fit_config_measures <- fit_measures(fit_config)
     fit_metric_measures <- fit_measures(fit_metric)
     fit_scalar_measures <- fit_measures(fit_scalar)
@@ -453,8 +424,7 @@ for (i in 1:(length(years)-1)) {
           stringsAsFactors = FALSE
         )
       )
-    
-    
+       
     results_table4 <- results_table4 %>%
       bind_rows(
         data.frame(
@@ -511,4 +481,3 @@ for (i in 1:(length(years)-1)) {
 
 write_clip(results_table3)
 write_clip(results_table4)
-
