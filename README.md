@@ -5,9 +5,6 @@ from retrospective survey data with partially overlapping items.
 
 The project introduces a comprehensive analytical framework for deriving and validating multidimensional measurement structures using retrospective survey data with partially overlapping items and samples.
 
--------------------------
-PROJECT STRUCTURE
--------------------------
 The repository is organized into three main analytical stages:
 
 1. Code 1 – Exploratory Structure Derivation  
@@ -36,9 +33,9 @@ The repository is organized into three main analytical stages:
    - Evaluation using ΔCFI and ΔRMSEA criteria  
 
 --------------------------
-SUPPLEMENTARY MATERIALS
+Supplementary Material
 --------------------------
-The "Supplementary" folder contains Supplementary Material S1, which provides:
+The "Supplementary" folder contains Supplementary Material, which provides:
 - Item-level information  
 - Polychoric correlation matrices  
 - Co-occurrence matrices  
@@ -50,13 +47,12 @@ The "Supplementary" folder contains Supplementary Material S1, which provides:
 These materials ensure full reproducibility of all analytical stages.
 
 --------------------------
-FIGURES
+Figures
 --------------------------
-The "Figures" folder includes scripts used to generate all visual outputs 
-presented in the manuscript, including:
+The "Figures" folder contains the visual outputs presented in the manuscript, generated from the analytical procedures implemented in the R scripts within the "Code" folder. These include:
 - MDS configurations  
 - Network-based clustering results  
-- Model evaluation plots  
+- Model evaluation plots   
 
 ---------------------------
 REPRODUCIBILITY
