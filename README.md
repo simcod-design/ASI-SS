@@ -55,7 +55,7 @@ The "Figures" folder contains the visual outputs presented in the manuscript, ge
 - Model evaluation plots   
 
 ---------------------------
-REPRODUCIBILITY
+Reproducibility
 ---------------------------
 All analyses reported in the manuscript can be reproduced using the provided R scripts.
 The analytical pipeline follows a sequential structure:
@@ -66,14 +66,14 @@ Step 3 → Run Code 3 (measurement invariance)
 Each script builds on outputs generated in the previous stage.
 
 ---------------------------
-DATA AVAILABILITY
+Data Availability
 ---------------------------
 Due to institutional restrictions, the original data cannot be shared.  
 However, all analysis scripts and intermediate outputs are provided to ensure 
 maximum transparency and reproducibility.
 
 ---------------------------
-SOFTWARE REQUIREMENTS
+Software Requirements
 ---------------------------
 The analyses were conducted in R. Key packages include:
 - lavaan  
@@ -89,7 +89,7 @@ The analyses were conducted in R. Key packages include:
 (Additional packages are specified within each script.)
 
 ---------------------------
-CITATION
+Citation
 ---------------------------
 If you use this repository, please cite:
 
