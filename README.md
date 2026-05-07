@@ -93,6 +93,6 @@ Citation
 ---------------------------
 If you use this repository, please cite:
 
-Demir, P., Yılmaz, M. A., & Yuksel, S.  
+Demir, P., Yılmaz, M. A., AYBU Quality Board & Yuksel, S.  
 Beyond Classical Scale Development: Constructing Robust Longitudinal Measurement 
 Structures from Retrospective Survey Data with Partially Overlapping Items.
